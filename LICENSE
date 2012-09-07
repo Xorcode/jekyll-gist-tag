@@ -1,13 +1,3 @@
-jekyll-gist-tag
-===============
-
-Display github gists easily anywhere liquid syntax is parsed (templates, includes, posts/pages).
-
-Usage: `{% gist 3361948/sample_output %}`
-
-License
-=======
-
 Copyright (c) 2012, Xorcode LLC.
 All rights reserved.
 
