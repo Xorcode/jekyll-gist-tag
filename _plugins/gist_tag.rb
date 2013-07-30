@@ -29,9 +29,6 @@
 # of the authors and should not be interpreted as representing official policies, 
 # either expressed or implied, of Xorcode, LLC.
 
-require 'cgi'
-require 'open-uri'
-
 module Xorcode
   module Liquid
     class GistTag < ::Liquid::Tag
@@ -42,14 +39,10 @@ module Xorcode
       end
 
       def render(context)
-        raw_uri = "https://gist.github.com/raw/#{@gist_id}/#{@filename}"
         script_uri = "https://gist.github.com/#{@gist_id}.js?file=#{@filename}"
         <<MARKUP.strip
 <div id="gist-#{@gist_ref.gsub(/[^a-z0-9]/i,'-')}">
   <script src="#{script_uri}"></script>
-  <noscript>
-    <pre>#{CGI.escapeHTML(open(raw_uri).read.chomp)}</pre>
-  </noscript>
 </div>
 MARKUP
       end
